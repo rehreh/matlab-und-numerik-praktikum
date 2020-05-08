@@ -1,4 +1,10 @@
-%% Aufgabe 1
+%
+%     Termin 1 - Einführung
+%         bearbeitet von Thees Wilken und Ole Simmering
+display("Termin 1 - Einführung")
+display("bearbeitet von Thees Wilken und Ole Simmering")
+% 
+%% Aufgabe 1 - Matematische operationen mit Vektoren
 clear all   % Den Workspace leeren
 clc         % Das Command Window leeren
 
@@ -26,14 +32,14 @@ disp("Matrixmultiplikation: x * y^T:")
 x * y'
 disp("Matrixmultiplikation bei falsch gewählten Dimenstionen nicht möglich!")
 
-%% Aufgabe 2
+%% Aufgabe 2 - Kettenbruch
 clear all                               % Den Workspace leeren
 clc                                     % Das Command Window leeren
 
 n = kbruch(4);
 disp("Kettenbrch mit Tiefe 4: " + n)
 
-%% Aufgabe 3
+%% Aufgabe 3 - Erster Plot
 clear all                               % Den Workspace leeren
 clc                                     % Das Command Window leeren
 
@@ -47,7 +53,7 @@ text(1.75, 1000, 'f(x)')
 xlabel('0\leq x \leq 3')
 ylabel('0\leq y \leq 3500')
 
-%% Aufgabe 4
+%% Aufgabe 4 - 3D Plot
 close all                               % Fenster der vorigen Aufgabe schließen
 clear all                               % Den Workspace leeren
 clc                                     % Das Command Window leeren
@@ -85,7 +91,7 @@ figure ('Name','Aufgabe 4: contour','NumberTitle', 'Off')
 contour(X,Y,Z);
 title 'contour';
 
-%% Aufgabe 5
+%% Aufgabe 5 - Fixpunktgleichung
 close all                               % Fenster der vorigen Aufgabe schließen
 clear all                               % Den Workspace leeren
 clc                                     % Das Command Window leeren
@@ -120,7 +126,7 @@ Kettenbruch = kbruch(31);
 disp("Der Kettenbruch mit Tiefe 31 liefert: " + Kettenbruch)
 disp("Man sieht, dass x und der Kettenbruch gegen 1,6180 konvergieren.")
 
-%% Aufgabe 6
+%% Aufgabe 6 - Parametrischer 3D Plot
 close all                               % Fenster der vorigen Aufgabe schließen
 clear all                               % Den Workspace leeren
 clc                                     % Das Command Window leeren
@@ -141,7 +147,7 @@ ylabel('0\leq y \leq 60')
 zlabel('1\leq t \leq 20')
 
 
-%% Aufgabe 7
+%% Aufgabe 7 - Dünn besetzte Zufallsmatrix
 close all                               % Fenster der vorigen Aufgabe schließen
 clear all                               % Den Workspace leeren
 clc                                     % Das Command Window leeren
@@ -173,7 +179,7 @@ out = R.'*R;
 ElapsedTime = toc();
 disp("Benötigte Zeit für die Matrixmultiplikation R^T * R mit neuem Datentyp: " + ElapsedTime + "s")
 
-%% Aufgabe 8
+%% Aufgabe 8 - Lineares Gleichungssystem
 close all                               % Fenster der vorigen Aufgabe schließen
 clear all                               % Den Workspace leeren
 clc                                     % Das Command Window leeren
@@ -221,7 +227,7 @@ disp("Das Gleichungssystem ist eindeutig lösbar, da es vollen Rang aufweist. Di
 C\c
 
 
-%% Aufgabe 9
+%% Aufgabe 9 - Pascalsche Schnecke
 close all                               % Fenster der vorigen Aufgabe schließen
 clear all                               % Den Workspace leeren
 clc                                     % Das Command Window leeren
@@ -264,3 +270,4 @@ ylabel('-8\leq y \leq 8')
 close all                               % Fenster der vorigen Aufgabe schließen
 clear all                               % Den Workspace leeren
 clc                                     % Das Command Window leeren
+display("Hiermit ist der erste Termin beendet. Vielen Dank für ihre Aufmerksamkeit!")
