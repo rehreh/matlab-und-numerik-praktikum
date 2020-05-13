@@ -73,7 +73,7 @@ clearvars
 n1 = num2str(log2(abs(1-2)/10^-5),16);
 disp(sprintf(['Berechnet haben wir eine theoretisch benötigte Anzahl an Schritten von: ' , n1,'\n']));
 bisect(@(x) exp(x)-3*x,1,2)
-disp(sprintf('\nTatsächlich wurden 17 Schritte benötigt.'));
+disp(sprintf('\nTatsächlich wurden 17 Schritte benötigt.')); 
 %% Abschluss
 aufraeumen()
 clearvars
