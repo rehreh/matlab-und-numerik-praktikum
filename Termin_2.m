@@ -69,6 +69,7 @@ ausw3 = num2str(y(10^-10),16);
 disp(sprintf(['Auswertung mit Taylorentwicklung: \nMit dieser Auswertung hat die Funktion f(x) an der Stelle 10^-4 den Wert: ', ausw1, ', an der Stelle 10^-8 den \nWert: ', ausw2, ' und an der Stelle 10^-10 den Wert: ', ausw3,'.\nHier werden die kleinen Werte im Zähler noch zusätzlich potenziert, sodass die letzten beiden Therme wegfallen und das Ergebnis \nnurnoch 1/6 ist.\n']))
 %% Aufgabe 3 Bisektion
 aufraeumen()
+
 clearvars
 n1 = num2str(log2(abs(1-2)/10^-5),16);
 disp(sprintf(['Berechnet haben wir eine theoretisch benötigte Anzahl an Schritten von: ' , n1,'\n']));
