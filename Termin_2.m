@@ -92,7 +92,7 @@ bisect(@(x) exp(x)-3*x,1,2);
 disp(sprintf('Tatsächlich wurden 17 Schritte benötigt.\n')); 
 
 %% Aufgabe 4 b
-aufraumen()
+aufraeumen()
 clearvars
 newton(@ polynom_A4,@ dpolynom_A4,1,10^-16,100)
 fprintf('\nDer gewählte Startwert 1 ist zu weit von der Nullstelle entfernt, sodass das Newton-Verfahren nicht gegen die Nullstelle \nkonvergiert.\n\n')
