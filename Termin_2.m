@@ -100,7 +100,8 @@ fprintf('Durch die Bisektion wurde die Nullstelle bereits ausreichend angenäher
 aufraumen()
 clearvars
 
-fprintf('\nAuswertung nach Horner-Schema:\n\n')
+fprintf('\nAuswertung des Polynoms p(x) = x^6 - 5x^5 + x^4 - 2x^3 + 2x + 1, für das Intervall x: [-10^4,10^5] in 0,01-er Schritten.\n')
+fprintf('\nAuswertung nach Horner-Schema. \n')
 x = [-10^4:0.01:10^5];
 tic
 for i=1:1:numel(x)
@@ -109,14 +110,14 @@ end
 hornertime = toc;
 
 
-fprintf('\nNaive Auswertung:\n\n')
+fprintf('\nNaive Auswertung.\n')
 tic
 for i=1:1:numel(x)
     pol_ausw_naiv([1 -5 1 -2 0 2 1],x(i))
 end
 naivtime = toc;
 
-fprintf('\nZum Auswerten mittels Horner-Schema wurden: %f s benötigt, zum "naiven" Auswerten wurden %f s benötigt', hornertime, naivtime)
+fprintf('\nZum Auswerten mittels Horner-Schema wurden: %f s benötigt, zum "naiven" Auswerten wurden %f s benötigt\n', hornertime, naivtime)
 
 %% Aufgabe 6
 aufraeumen()
