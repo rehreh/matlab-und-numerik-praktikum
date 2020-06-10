@@ -104,7 +104,7 @@ newton(@ polynom_A4, @ dpolynom_A4, a)
 fprintf('Durch die Bisektion wurde die Nullstelle bereits ausreichend angenähert, sodass das Newton-Verfahren nun gegen die \nNullstelle konvergiert.\n\n')
 
 %% Aufgabe 5
-aufraumen()
+aufraeumen()
 clearvars
 
 fprintf('\nAuswertung des Polynoms p(x) = x^6 - 5x^5 + x^4 - 2x^3 + 2x + 1, für das Intervall x: [-10^4,10^5] in 0,01-er Schritten.\n')
