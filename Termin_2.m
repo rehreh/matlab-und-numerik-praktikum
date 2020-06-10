@@ -92,6 +92,7 @@ bisect(@(x) exp(x)-3*x,1,2);
 disp(sprintf('Tatsächlich wurden 17 Schritte benötigt.\n')); 
 
 %% Aufgabe 4 b
+aufraeumen()
 clearvars
 newton(@ polynom_A4,@ dpolynom_A4,1,10^-16,100)
 fprintf('\nDer gewählte Startwert 1 ist zu weit von der Nullstelle entfernt, sodass das Newton-Verfahren nicht gegen die Nullstelle \nkonvergiert.\n\n')
@@ -103,6 +104,7 @@ newton(@ polynom_A4, @ dpolynom_A4, a)
 fprintf('Durch die Bisektion wurde die Nullstelle bereits ausreichend angenähert, sodass das Newton-Verfahren nun gegen die \nNullstelle konvergiert.\n\n')
 
 %% Aufgabe 5
+aufraeumen()
 clearvars
 
 fprintf('\nAuswertung des Polynoms p(x) = x^6 - 5x^5 + x^4 - 2x^3 + 2x + 1, für das Intervall x: [-10^4,10^5] in 0,01-er Schritten.\n')
