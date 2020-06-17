@@ -1,3 +1,5 @@
+function LV = LotkaVolterra()
+
 % Modellierungskonstanten:
 
 alpha_1 = 2;
@@ -15,3 +17,5 @@ plot (T,Y(:,1), 'g',T,Y(:,2),'r');
 
 xlabel('t');
 ylabel('y');
+
+end
