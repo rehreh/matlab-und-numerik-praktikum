@@ -29,4 +29,12 @@ clear all   % Den Workspace leeren
 clc         % Das Command Window leeren
 
 fprintf('Schießverfahren:\n\nBei dem Schießverfahren werden Randwertprobleme durch Anfangswertprobleme ausgetauscht, bei denen die Differenz zwischen der DGL \nund dem gewünschten Randwert angenähert wird, indem die Steigung als Anfangswert variiert wird.\n')
-Hallo
+%% Aufgabe 1.6
+clear all   % Den Workspace leeren
+clc         % Das Command Window leeren
+fprintf('Lotka-Volterra-Gleichungen:\n\nDie Lotka-Volterra-Gleichungen beschreiben die Entwicklung zweier Tierpopulationen, wobei je eine DGL die Population \ndes Beute- bzw. des Raubtiers beschreibt.')
+LotkaVolterra()
+%% Aufgabe 1.7
+clear all   % Den Workspace leeren
+clc         % Das Command Window leeren
+fprintf('Gedämpfter Oszillator:\n\nAls Gedämpften Oszillator beschreibt man ein System gleichmäßiger Schwankungen, wobei die Amplituden der Schwankungen je Periode kleiner werden.')
