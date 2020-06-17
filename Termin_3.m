@@ -29,4 +29,26 @@ clear all   % Den Workspace leeren
 clc         % Das Command Window leeren
 
 fprintf('Schießverfahren:\n\nBei dem Schießverfahren werden Randwertprobleme durch Anfangswertprobleme ausgetauscht, bei denen die Differenz zwischen der DGL \nund dem gewünschten Randwert angenähert wird, indem die Steigung als Anfangswert variiert wird.\n')
-Hallo
+
+%% Aufgabe 2a
+clear all   % Den Workspace leeren
+clc         % Das Command Window leeren
+close all   % Alle weiteren offenen Fenster schließen
+
+LotkaVolterraPhase(2,1,2,1)
+
+%% Aufgabe 2b
+clear all   % Den Workspace leeren
+clc         % Das Command Window leeren
+close all   % Alle weiteren offenen Fenster schließen
+
+LotkaVolterraOptions(2,1,2,1)
+
+%% Aufgabe 2c 
+clear all   % Den Workspace leeren
+clc         % Das Command Window leeren
+close all   % Alle weiteren offenen Fenster schließen
+
+LotkaVolterra(2,1,2,1)
+LotkaVolterra(1,2,1,2)
+
