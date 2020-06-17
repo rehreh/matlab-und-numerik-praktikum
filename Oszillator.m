@@ -2,17 +2,17 @@ function O = Oszillator
 
 d = 0.3;
 k = 2;
-m = 1
+m = 1;
 
 odefun_O = @(t,z) odefun_Oszillator (t, z, d, k, m);
 
 tspan = [0,30];     % Zeitintervall für die Integration
-y0 = [1;3];         % Anfangswerte
-[T,Y] = ode45 (odefun_LV, tspan, y0);
+z0 = [1;-3];         % Anfangswerte
+[t,z] = ode45 (odefun_O, tspan, z0);
 
-plot (T,Y(:,1), 'g',T,Y(:,2),'r');
+plot (t,z(:,1), 'g');
 
 xlabel('t');
-ylabel('y');
+ylabel('z');
 
 end
