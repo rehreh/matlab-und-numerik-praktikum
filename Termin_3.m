@@ -34,7 +34,7 @@ fprintf('Schießverfahren:\n\nBei dem Schießverfahren werden Randwertprobleme d
 clear all   % Den Workspace leeren
 clc         % Das Command Window leeren
 fprintf('Lotka-Volterra-Gleichungen:\n\nDie Lotka-Volterra-Gleichungen beschreiben die Entwicklung zweier Tierpopulationen, wobei je eine DGL die Population \ndes Beute- bzw. des Raubtiers beschreibt.')
-LotkaVolterra()
+LotkaVolterra(2,1,2,1)
 
 %% Aufgabe 1.7
 clear all   % Den Workspace leeren
@@ -117,20 +117,25 @@ k_3 = 10^4;
 
 a = [a_11, a_12, a_13;...
      a_21, a_22, a_23;...
-     a_31, a_32, a_33] ;
+     a_31, a_32, a_33];
 
 g = [g_11, g_12, g_13;...
      g_21, g_22, g_23;...
-     g_31, g_32, g_33]
+     g_31, g_32, g_33];
      
 k = [k_1;k_2;k_3];
 
 fprintf('1. Teilreaktion: %1.0f, %1.0f, %1.0f => %1.0f, %1.0f, %1.0f  mit Geschwindigkeit k_1 = %1.2f\n' , a_11, a_21, a_31, g_11, g_21, g_31, k_1)
 fprintf('2. Teilreaktion: %1.0f, %1.0f, %1.0f => %1.0f, %1.0f, %1.0f  mit Geschwindigkeit k_1 = %1.0f\n' , a_12, a_22, a_32, g_12, g_22, g_32, k_2)
-fprintf('3. Teilreaktion: %1.0f, %1.0f, %1.0f => %1.0f, %1.0f, %1.0f  mit Geschwindigkeit k_1 = %1.0f\n' , a_13, a_23, a_33, g_13, g_23, g_33, k_3)
+fprintf('3. Teilreaktion: %1.0f, %1.0f, %1.0f => %1.0f, %1.0f, %1.0f  mit Geschwindigkeit k_1 = %1.0f\n\n' , a_13, a_23, a_33, g_13, g_23, g_33, k_3)
 
-
-
+y = zeros(3,1);
+sum = zeros(1,3);
+for j = 1:3
+    for i = 1:3 
+        sum(j) = sum(j) + k(j)*(g(i,j)-a(i,j));
+    end
+end
 %% Aufgabe 4b
 clear all   % Den Workspace leeren
 clc         % Das Command Window leeren
