@@ -68,23 +68,79 @@ clear all   % Den Workspace leeren
 clc         % Das Command Window leeren
 close all   % Alle weiteren offenen Fenster schließen
 
+
+
 %% Aufgabe 3b
 clear all   % Den Workspace leeren
 clc         % Das Command Window leeren
 close all   % Alle weiteren offenen Fenster schließen
+
+
 
 %% Aufgabe 4a
 clear all   % Den Workspace leeren
 clc         % Das Command Window leeren
 close all   % Alle weiteren offenen Fenster schließen
 
+a_11 = 1;
+a_21 = 0;
+a_31 = 0;
+
+g_11 = 0;
+g_21 = 1;
+g_31 = 0;
+
+k_1 = 0.04;
+
+
+a_12 = 0;
+a_22 = 2;
+a_32 = 0;
+
+g_12 = 0;
+g_22 = 1;
+g_32 = 1;
+
+k_2 = 3*10^7;
+
+
+a_13 = 0;
+a_23 = 1;
+a_33 = 1;
+
+g_13 = 1;
+g_23 = 0;
+g_33 = 1;
+
+k_3 = 10^4;
+
+
+a = [a_11, a_12, a_13;...
+     a_21, a_22, a_23;...
+     a_31, a_32, a_33] ;
+
+g = [g_11, g_12, g_13;...
+     g_21, g_22, g_23;...
+     g_31, g_32, g_33]
+     
+k = [k_1;k_2;k_3];
+
+fprintf('1. Teilreaktion: %1.0f, %1.0f, %1.0f => %1.0f, %1.0f, %1.0f  mit Geschwindigkeit k_1 = %1.2f\n' , a_11, a_21, a_31, g_11, g_21, g_31, k_1)
+fprintf('2. Teilreaktion: %1.0f, %1.0f, %1.0f => %1.0f, %1.0f, %1.0f  mit Geschwindigkeit k_1 = %1.0f\n' , a_12, a_22, a_32, g_12, g_22, g_32, k_2)
+fprintf('3. Teilreaktion: %1.0f, %1.0f, %1.0f => %1.0f, %1.0f, %1.0f  mit Geschwindigkeit k_1 = %1.0f\n' , a_13, a_23, a_33, g_13, g_23, g_33, k_3)
+
+
+
 %% Aufgabe 4b
 clear all   % Den Workspace leeren
 clc         % Das Command Window leeren
 close all   % Alle weiteren offenen Fenster schließen
 
+
+
 %% Aufgabe 4c
 clear all   % Den Workspace leeren
 clc         % Das Command Window leeren
 close all   % Alle weiteren offenen Fenster schließen
+
 
