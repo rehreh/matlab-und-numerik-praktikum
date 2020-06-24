@@ -63,3 +63,28 @@ close all   % Alle weiteren offenen Fenster schließen
 LotkaVolterra(2,1,2,1)
 LotkaVolterra(1,2,1,2)
 
+%% Aufgabe 3a
+clear all   % Den Workspace leeren
+clc         % Das Command Window leeren
+close all   % Alle weiteren offenen Fenster schließen
+
+%% Aufgabe 3b
+clear all   % Den Workspace leeren
+clc         % Das Command Window leeren
+close all   % Alle weiteren offenen Fenster schließen
+
+%% Aufgabe 4a
+clear all   % Den Workspace leeren
+clc         % Das Command Window leeren
+close all   % Alle weiteren offenen Fenster schließen
+
+%% Aufgabe 4b
+clear all   % Den Workspace leeren
+clc         % Das Command Window leeren
+close all   % Alle weiteren offenen Fenster schließen
+
+%% Aufgabe 4c
+clear all   % Den Workspace leeren
+clc         % Das Command Window leeren
+close all   % Alle weiteren offenen Fenster schließen
+
