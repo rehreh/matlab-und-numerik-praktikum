@@ -1,4 +1,9 @@
-function dZ = odefun_Oszillator (t, z, d, k, m)
+function dZ = odefun_Oszillator (t, z)
+
+d = 0.3;
+k = 2;
+m = 1;
+
 
 dZ = zeros(2,1);
 dZ(1) = z(2);
