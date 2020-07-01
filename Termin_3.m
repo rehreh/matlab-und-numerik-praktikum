@@ -67,15 +67,26 @@ LotkaVolterra(1,2,1,2)
 clear all   % Den Workspace leeren
 clc         % Das Command Window leeren
 close all   % Alle weiteren offenen Fenster schließen
-
-
+%Anfangswertproblem lösen mittels ode45:
+Oszillator()
 
 %% Aufgabe 3b
 clear all   % Den Workspace leeren
 clc         % Das Command Window leeren
 close all   % Alle weiteren offenen Fenster schließen
+%i) Lösung des Anfangswertproblems:
+ tspan = [0,3];
+    ye = -0.5;
+    y0 = 1;
 
+    Z0 = [y0;0.2195];
+    option = odeset('RelTol',1.0e-10,'AbsTol',1.0e-6);
 
+[T,Z] = ode45(@odefun_Oszillators,tspan,Z0,option);
+%ii) Annäherung der Nullstelle von F(s) mittels Bisektion:
+bisect(@(s)F(s),0,3)
+%iii) Ausgabe des Graphen von ys:
+plot(T,Z(:,1));
 
 %% Aufgabe 4a
 clear all   % Den Workspace leeren
