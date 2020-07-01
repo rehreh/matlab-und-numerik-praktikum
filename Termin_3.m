@@ -126,37 +126,86 @@ g_33 = 1;
 k_3 = 10^4;
 
 
-a = [a_11, a_12, a_13;...
-     a_21, a_22, a_23;...
-     a_31, a_32, a_33];
-
-g = [g_11, g_12, g_13;...
-     g_21, g_22, g_23;...
-     g_31, g_32, g_33];
-     
-k = [k_1;k_2;k_3];
+% a = [a_11, a_12, a_13;...
+%      a_21, a_22, a_23;...
+%      a_31, a_32, a_33];
+% 
+% g = [g_11, g_12, g_13;...
+%      g_21, g_22, g_23;...
+%      g_31, g_32, g_33];
+%      
+% k = [k_1;k_2;k_3];
 
 fprintf('1. Teilreaktion: %1.0f, %1.0f, %1.0f => %1.0f, %1.0f, %1.0f  mit Geschwindigkeit k_1 = %1.2f\n' , a_11, a_21, a_31, g_11, g_21, g_31, k_1)
 fprintf('2. Teilreaktion: %1.0f, %1.0f, %1.0f => %1.0f, %1.0f, %1.0f  mit Geschwindigkeit k_1 = %1.0f\n' , a_12, a_22, a_32, g_12, g_22, g_32, k_2)
 fprintf('3. Teilreaktion: %1.0f, %1.0f, %1.0f => %1.0f, %1.0f, %1.0f  mit Geschwindigkeit k_1 = %1.0f\n\n' , a_13, a_23, a_33, g_13, g_23, g_33, k_3)
 
-y = zeros(3,1);
-sum = zeros(1,3);
-for j = 1:3
-    for i = 1:3 
-        sum(j) = sum(j) + k(j)*(g(i,j)-a(i,j));
-    end
-end
 %% Aufgabe 4b
 clear all   % Den Workspace leeren
 clc         % Das Command Window leeren
 close all   % Alle weiteren offenen Fenster schließen
 
+tspan=[0,0.3];
+y0=[1;0;0];
+
+option = odeset('RelTol',1.0e-2,'AbsTol',1.0e-8);
+
+[T,Y] = ode45(@odefun_Reaktion,tspan,y0,option);
+
+figure; plot(T,Y(:,2));
+
+title('Aufgabe 3b: y_2');
+xlabel('t');
+ylabel ('y');
+grid on;
+
+%%
+
+[T,Y] = ode45(@odefun_Reaktion,tspan,y0,option);
+
+dif=diff(T);
+figure; plot(dif);
+title('Schrittweiten, 820 Integrationsschritte');
+xlabel('t');
+ylabel ('y');
+grid on;
+
+L = length(dif)
 
 
 %% Aufgabe 4c
 clear all   % Den Workspace leeren
 clc         % Das Command Window leeren
 close all   % Alle weiteren offenen Fenster schließen
+
+tspan=[0,0.3];
+y0=[1;0;0];
+
+option = odeset('RelTol',1.0e-2,'AbsTol',1.0e-8);
+
+[T,Y] = ode45(@odefun_Reaktion,tspan,y0,option);
+
+figure('Name','Aufgabe 4c: Lösung der Differentialgleichung','NumberTitle', 'Off'); 
+
+plot(T,Y(:,2));
+hold on;
+
+fprintf('Integrationsschritte für ode45: %d\n\n\n', length(T))
+
+[T,Y] = ode23tb(@odefun_Reaktion,tspan,y0,option);
+
+plot(T,Y(:,2));
+
+
+title('Aufgabe 4c: y_2 gelöst mit ode45 und ode23tb');
+xlabel('t');
+ylabel ('y');
+grid on;
+legend('ode45','ode23tb','Location','southeast');
+
+fprintf('Integrationsschritte für ode23tb: %d\n', length(T))
+
+
+
 
 
