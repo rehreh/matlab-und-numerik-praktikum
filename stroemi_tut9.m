@@ -9,6 +9,20 @@ n = 0:250:1500;
 m = -2000:250:2000;
 [X, Y] = meshgrid(x,y);
 
+a=1;
+b=1;
+while a < min(size(X))
+    while b < max(size(X))
+        if sqrt(X(a,b)^2+Y(a,b)^2)<49.9
+        X(a,b)=0;
+        Y(a,b)=0;
+        end
+        b=b+1;
+    end 
+    b=1;
+    a=a+1;
+end   
+    
 figure ('Name','Strömungsmechanik','NumberTitle', 'Off');
 hold on;
 grid on;
