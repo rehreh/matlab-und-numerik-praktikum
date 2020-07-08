@@ -1,3 +1,6 @@
+clc
+clear all
+close all
 %
 %     Termin 1 - Einführung
 %         bearbeitet von Thees Wilken und Ole Simmering
@@ -37,9 +40,10 @@ fprintf('Lotka-Volterra-Gleichungen:\n\nDie Lotka-Volterra-Gleichungen beschreib
 LotkaVolterra(2,1,2,1)
 
 %% Aufgabe 1.7
+close all;
 clear all   % Den Workspace leeren
 clc         % Das Command Window leeren
-fprintf('Gedämpfter Oszillator:\n\nAls Gedämpften Oszillator beschreibt man ein System gleichmäßiger Schwankungen, wobei die Amplituden der Schwankungen je Periode kleiner werden.')
+fprintf('Gedämpfter Oszillator:\n\nAls Gedämpften Oszillator beschreibt man ein System gleichmäßiger Schwankungen, wobei die Amplituden der Schwankungen je Periode kleiner werden.\n Hier wird als Anfangsbedingung des Anfangswertproblems die Auslenkung zum Startzeitpunkt und die Anfangsgeschwindigkeit gewählt. Die Bewegungsgleichung ist durch die Beschleunigung gegeben. Somit ist das Anfangswertproblem eines zweiter Ordnung. Dieses kann nun als Problem erster Ordnung dargestellt werden, indem die Position und die Geschwindigkeit in einen Vektor z geschrieben werden und die Bewegungsgleichung nun die Ableitung ersten Grades der zweiten Komponente ist.')
 
 %% Aufgabe 2a
 clear all   % Den Workspace leeren
@@ -84,7 +88,7 @@ close all   % Alle weiteren offenen Fenster schließen
 
 [T,Z] = ode45(@odefun_Oszillators,tspan,Z0,option);
 %ii) Annäherung der Nullstelle von F(s) mittels Bisektion:
-bisect(@(s)F(s),0,3)
+bisect(@(s)F_term3(s),0,3)
 %iii) Ausgabe des Graphen von ys:
 plot(T,Z(:,1));
 
