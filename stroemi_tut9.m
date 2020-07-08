@@ -11,6 +11,7 @@ m = -2000:250:2000;
 
 a=1;
 b=1;
+
 while a < min(size(X))
     while b < max(size(X))
         if sqrt(X(a,b)^2+Y(a,b)^2)<49.9
