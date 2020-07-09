@@ -43,7 +43,7 @@ LotkaVolterra(2,1,2,1)
 close all;
 clear all   % Den Workspace leeren
 clc         % Das Command Window leeren
-fprintf('Gedämpfter Oszillator:\n\nAls Gedämpften Oszillator beschreibt man ein System gleichmäßiger Schwankungen, wobei die Amplituden der Schwankungen je Periode kleiner werden.\n Hier wird als Anfangsbedingung des Anfangswertproblems die Auslenkung zum Startzeitpunkt und die Anfangsgeschwindigkeit gewählt. Die Bewegungsgleichung ist durch die Beschleunigung gegeben. Somit ist das Anfangswertproblem eines zweiter Ordnung. Dieses kann nun als Problem erster Ordnung dargestellt werden, indem die Position und die Geschwindigkeit in einen Vektor z geschrieben werden und die Bewegungsgleichung nun die Ableitung ersten Grades der zweiten Komponente ist.')
+fprintf('Gedämpfter Oszillator:\n\nAls Gedämpften Oszillator beschreibt man ein System gleichmäßiger Schwankungen, wobei die Amplituden der Schwankungen je Periode kleiner werden.\nHier wird als Anfangsbedingung des Anfangswertproblems die Auslenkung zum Startzeitpunkt und die Anfangsgeschwindigkeit gewählt.\nDie Bewegungsgleichung ist durch die Beschleunigung gegeben. Somit ist das Anfangswertproblem eines zweiter Ordnung.\nDieses kann nun als Problem erster Ordnung dargestellt werden, indem die Position und die Geschwindigkeit in einen Vektor z geschrieben werden\nund die Bewegungsgleichung nun die Ableitung ersten Grades der zweiten Komponente ist.')
 
 %% Aufgabe 2a
 clear all   % Den Workspace leeren
@@ -83,12 +83,12 @@ close all   % Alle weiteren offenen Fenster schließen
     ye = -0.5;
     y0 = 1;
 
-    Z0 = [y0;0.2195];
+    Z0 = [y0;bisect(@(s)F(s),0,3)];
     option = odeset('RelTol',1.0e-10,'AbsTol',1.0e-6);
 
 [T,Z] = ode45(@odefun_Oszillators,tspan,Z0,option);
 %ii) Annäherung der Nullstelle von F(s) mittels Bisektion:
-bisect(@(s)F_term3(s),0,3)
+bisect(@(s)F(s),0,3)
 %iii) Ausgabe des Graphen von ys:
 plot(T,Z(:,1));
 

@@ -24,4 +24,13 @@ clc;
 
 fprintf('Lineare Programmierung:\n\nLineare Programmierung ist ein Verfahren zur Optimierung linearer Funktionen, für eine durch (Un-)Gleichungen \neingeschränkte Menge. Es kann also mit linearen Programmen ein Funktionsmaximum oder -minimum einer linearen \nFunktion, für einen mehrfach eingeschränkten Bereich bestimmt werden.\n')
 fprintf('\nStrukturvariablen sind solche, bei denen der Parameter c_i ungleich null und die Optimierungsvariable größer \noder gleich Null ist.\nWenn der Parameter größer oder gleich Null, aber der Parameter in der Zielfunktion gleich Null ist, wird die \nVariable Schlupfvariable genannt. \nSind sowohl die Optimierungsvariable als auch der Parameter in der Zielfunktion aus den reellen Zahlen, \nso nennt man die Variable freie Variable.\n')
+fprintf('\nSeparationsfunktionen:\n\nDie Separationsfunktion ist eine Funktion, bei der die Koeffizienten der Variablen die Lösungen eines Optimierungsproblem ist. Sie ermöglicht \ndie optimale Trennung von Werten nach Einhaltung mehrerer Toleranzen. Die Punkte auf der Geraden können nicht \neindeutig zugeordnet werden. Sind die Toleranzen für die Zuordnung der Werte alle gleichwertig, kann das Problem \nmittels einer linearen Separationsfunktion gelöst werden. Fließen eine oder mehrere Toleranzen quadratisch in die \nBewertung der Werte ein, handelt es sich um eine quadratische Separationsgleichung.')
 
+%% Aufgabe 2a,b
+clc;
+
+fprintf('siehe Rosenbrock.m')
+Rosenbrock([1,1]);
+
+%% Aufgabe 2c
+clc;

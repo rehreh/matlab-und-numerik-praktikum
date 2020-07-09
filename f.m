@@ -8,11 +8,11 @@ function result = F(s)
     
     option = odeset('RelTol',1.0e-10,'AbsTol',1.0e-6);
     
-    sol = ode45(@odefun_Oszillators,tspan,Z0,option);
+    [t,sol] = ode45(@odefun_Oszillators,tspan,Z0,option);
     
-    D = deval(sol, [2 3]);
+   % D = deval(sol, [2 3]);
     
-    result = D(2)-ye;
+    result = sol(end,1)-ye;
     
     
 end
