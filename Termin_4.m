@@ -32,17 +32,114 @@ clc;
 fprintf('siehe Rosenbrock.m')
 Rosenbrock([1,1]);
 
-%% Aufgabe 2c
+%% Aufgabe 2c/d
 clc;
-s = Rosenbrock([2,1]);
-m = [s(:,5),s(:,6)];
-n = [s(:,3)];
-y = s(1,1);
-a = 100;
-e = 10^-3;
-x = [2; 1];
-inv(m)*n;
-while (norm(n)>e && i<a)
-    x = x-(inv(m)*n);
-    i=i+1;
-end
+clear all;
+
+x = NewtonRose([-1.2; 1], 30, 10^-9);
+fprintf('\nErgebnis des Newtonverfahrens: %3.4f, %3.4f\n', x(1), x(2)) 
+options.Display = 'iter';
+options.TolX = 10^-9;
+options.MaxIter = 30;
+[x, functionvalue, exitflag] = fminsearch(@Rosenbrock,[-1.2; 1], options);
+fprintf('Ergebnis des fminsearch: %3.4f, %3.4f\n', x(1), x(2)) 
+[x, functionvalue, exitflag] = fminunc(@Rosenbrock,[-1.2; 1], options);
+fprintf('\nErgebnis des fminunc: %3.4f, %3.4f\n', x(1), x(2))
+%% Aufgabe 3a
+clc;
+clear all;
+
+c = [1200, 500, 600];
+Aeq = [];
+beq = [];
+A = -[8, 4, 2; 4, 0, 2; 3, 0, 1; 3, 1, 0];
+b = -[40; 20; 10; 5];
+lb = [0.0; 0.0; 0.0];
+ub = [];
+x0 = [];
+
+options.Display = 'iter';
+
+[x, Preis, exitflag] = linprog(c, A, b, Aeq, beq, lb, ub, x0, options)
+
+%% Aufgabe 3b
+clc;
+clear all;
+
+c = [1200, 500, 600];
+Aeq = [];
+beq = [];
+A = -[8, 4, 2; 4, 0, 2; 3, 0, 1; 3, 1, 0];
+A = [A; 12, 4, 4; 6, 1, 1];
+b = -[40; 20; 10; 5];
+b = [3*b; 300; 81];
+lb = [0.0; 0.0; 0.0];
+ub = [];
+x0 = [];
+
+options.Display = 'iter';
+
+[x, Preis, exitflag] = linprog(c, A, b, Aeq, beq, lb, ub, x0, options)
+
+%% Aufgabe 3b
+clc;
+
+Ueberschuss = A*x-b;
+b(1:4)=b(1:4)-Ueberschuss(1:4);
+b(5)=b(5)+Ueberschuss(5)+Ueberschuss(1)+Ueberschuss(2);
+b(6)=b(6)+Ueberschuss(6)+Ueberschuss(3)+Ueberschuss(4);
+
+[x,price,exitflag] = linprog(c,A,b,Aeq,beq,lb,ub,x0,options);
+options.Display = 'iter';
+
+[x, Preis, exitflag] = linprog(c, A, b, Aeq, beq, lb, ub, x0, options)
+
+%% Aufgabe 4
+clc;
+clear all
+
+m = 300;
+PER = rand(m,1);
+KON = rand(m,1);
+idx = vecnorm([PER, KON], 2, 2) <1;
+k = m-sum(idx);
+PER = [PER(~idx); PER(idx)];
+KON = [KON(~idx); KON(idx)];
+
+scatter(PER(1:k), KON(1:k), '+')
+hold on
+scatter(PER(k+1:m), KON(k+1:m), 's')
+axis equal
+xlabel('PERmeabilitaet')
+ylabel('KONduktivitaet')
+
+c = [ 0.0, 0.0, 0.0 ];
+A = [ -ones(k,1),  -PER(1:k)   -KON(1:k);...
+    ones(m-k,1), PER(k+1:m), KON(k+1:m)];
+b = -ones(m,1);
+Aeq = [];
+beq = [];
+% Keine '='-Nebenbedingungen
+lb = [];   ub = [];
+% Freie Variable
+x0 = [];
+% Standard Startwert
+[x,fval,exitflag] =linprog(c,A,b,Aeq,beq,lb,ub,x0)
+%% Aufgabe 4
+clc;
+c = [0.0, 0.0 , 0.0, 0.0, 0.0, 0.0];
+A=[-ones(k,1),-PER(1:k), -KON(1:k),PER(1:k).*KON(1:k), PER(1:k).^2,KON(1:k).^2;
+    ones(m-k,1), PER(k+1:m), KON(k+1:m),PER(k+1:m).*KON(k+1:m), PER(k+1:m).^2, KON(k+1:m).^2];
+b = -ones(m,1);
+Aeq = [];
+beq = [];
+% Keine '='-Nebenbedingungen
+lb = [];
+ub = [];
+% Freie Variable
+x0 = [];
+% Standard Startwert
+[x,fval,exitflag] = linprog(c,A,b,Aeq,beq,lb,ub,x0)
+
+f = @(PER, KON) KON.^2.*x(5)
+fimplicit(f, [0,1,0,1]);
