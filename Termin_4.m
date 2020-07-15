@@ -34,3 +34,15 @@ Rosenbrock([1,1]);
 
 %% Aufgabe 2c
 clc;
+s = Rosenbrock([2,1]);
+m = [s(:,5),s(:,6)];
+n = [s(:,3)];
+y = s(1,1);
+a = 100;
+e = 10^-3;
+x = [2; 1];
+inv(m)*n;
+while (norm(n)>e && i<a)
+    x = x-(inv(m)*n);
+    i=i+1;
+end
