@@ -110,8 +110,8 @@ scatter(PER(1:k), KON(1:k), '+')
 hold on
 scatter(PER(k+1:m), KON(k+1:m), 's')
 axis equal
-xlabel('PERmeabilitaet')
-ylabel('KONduktivitaet')
+xlabel('Permeabilitaet')
+ylabel('Konduktivitaet')
 
 c = [ 0.0, 0.0, 0.0 ];
 A = [ -ones(k,1),  -PER(1:k)   -KON(1:k);...
@@ -128,7 +128,7 @@ x0 = [];
 %% Aufgabe 4
 clc;
 c = [0.0, 0.0 , 0.0, 0.0, 0.0, 0.0];
-A=[-ones(k,1),-PER(1:k), -KON(1:k),PER(1:k).*KON(1:k), PER(1:k).^2,KON(1:k).^2;
+A=[-ones(k,1),-PER(1:k), -KON(1:k),-PER(1:k).*KON(1:k), -(PER(1:k).^2),-(KON(1:k).^2);
     ones(m-k,1), PER(k+1:m), KON(k+1:m),PER(k+1:m).*KON(k+1:m), PER(k+1:m).^2, KON(k+1:m).^2];
 b = -ones(m,1);
 Aeq = [];
@@ -141,5 +141,5 @@ x0 = [];
 % Standard Startwert
 [x,fval,exitflag] = linprog(c,A,b,Aeq,beq,lb,ub,x0)
 
-f = @(PER, KON) KON.^2.*x(5)
-fimplicit(f, [0,1,0,1]);
+%f = @(PER, KON) KON.^2.*x(6)
+fimplicit(@(per, kon) x(1) + x(2).*per + x(3).*kon + x(4).*per.*kon + x(5).*per.^2 + x(6).*kon^2);
