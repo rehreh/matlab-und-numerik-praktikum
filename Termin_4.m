@@ -29,20 +29,23 @@ fprintf('\nSeparationsfunktionen:\n\nDie Separationsfunktion ist eine Funktion, 
 %% Aufgabe 2a,b
 clc;
 
-fprintf('siehe Rosenbrock.m')
+fprintf('siehe Rosenbrock.m\n')
 Rosenbrock([1,1]);
 
 %% Aufgabe 2c/d
 clc;
 clear all;
 
+fprintf('Newton Verfahren:\n\n');
 x = NewtonRose([-1.2; 1], 30, 10^-9);
-fprintf('\nErgebnis des Newtonverfahrens: %3.4f, %3.4f\n', x(1), x(2)) 
+fprintf('\nErgebnis des Newtonverfahrens: %3.4f, %3.4f\n\n\n\n', x(1), x(2)) 
+
+fprintf('fminsearch:\n');
 options.Display = 'iter';
 options.TolX = 10^-9;
 options.MaxIter = 30;
 [x, functionvalue, exitflag] = fminsearch(@Rosenbrock,[-1.2; 1], options);
-fprintf('Ergebnis des fminsearch: %3.4f, %3.4f\n', x(1), x(2)) 
+fprintf('Ergebnis des fminsearch: %3.4f, %3.4f\n\nfminunc:\n', x(1), x(2)) 
 [x, functionvalue, exitflag] = fminunc(@Rosenbrock,[-1.2; 1], options);
 fprintf('\nErgebnis des fminunc: %3.4f, %3.4f\n', x(1), x(2))
 %% Aufgabe 3a
@@ -79,7 +82,8 @@ x0 = [];
 
 options.Display = 'iter';
 
-[x, Preis, exitflag] = linprog(c, A, b, Aeq, beq, lb, ub, x0, options)
+[x, Preis, exitflag] = linprog(c, A, b, Aeq, beq, lb, ub, x0, options);
+fprintf('Optimaler Punkt: %1.0f, %1.0f, %1.0f\n\nPreis: %1.0f\n\nExitflag: %1.0f\n', x(1), x(2), x(3), Preis, exitflag);
 
 %% Aufgabe 3b
 clc;
@@ -90,9 +94,11 @@ b(5)=b(5)+Ueberschuss(5)+Ueberschuss(1)+Ueberschuss(2);
 b(6)=b(6)+Ueberschuss(6)+Ueberschuss(3)+Ueberschuss(4);
 
 [x,price,exitflag] = linprog(c,A,b,Aeq,beq,lb,ub,x0,options);
+fprintf('Optimaler Punkt: %1.0f, %1.0f, %1.0f\n\nPreis: %1.0f\n\nExitflag: %1.0f\n', x(1), x(2), x(3), Preis, exitflag);
 options.Display = 'iter';
 
-[x, Preis, exitflag] = linprog(c, A, b, Aeq, beq, lb, ub, x0, options)
+[x, Preis, exitflag] = linprog(c, A, b, Aeq, beq, lb, ub, x0, options);
+fprintf('Optimaler Punkt: %1.0f, %1.0f, %1.0f\n\nPreis: %1.0f\n\nExitflag: %1.0f\n', x(1), x(2), x(3), Preis, exitflag);
 
 %% Aufgabe 4
 clc;
