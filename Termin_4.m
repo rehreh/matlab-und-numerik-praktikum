@@ -130,7 +130,9 @@ lb = [];   ub = [];
 % Freie Variable
 x0 = [];
 % Standard Startwert
-[x,fval,exitflag] =linprog(c,A,b,Aeq,beq,lb,ub,x0)
+[x,fval,exitflag] =linprog(c,A,b,Aeq,beq,lb,ub,x0);
+fprintf('Optimaler Punkt: %1.0f\n\nPreis: %1.0f\n\nExitflag: %1.0f\n', x, fval, exitflag);
+
 %% Aufgabe 4
 clc;
 c = [0.0, 0.0 , 0.0, 0.0, 0.0, 0.0];
