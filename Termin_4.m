@@ -30,7 +30,7 @@ fprintf('\nSeparationsfunktionen:\n\nDie Separationsfunktion ist eine Funktion, 
 clc;
 
 fprintf('siehe Rosenbrock.m')
-Rosenbrock([1,1]);
+[x,y,z] = Rosenbrock([1,1])
 
 %% Aufgabe 2c/d
 clc;
@@ -62,7 +62,7 @@ options.Display = 'iter';
 
 [x, Preis, exitflag] = linprog(c, A, b, Aeq, beq, lb, ub, x0, options)
 
-%% Aufgabe 3b
+%% Aufgabe 3b I
 clc;
 clear all;
 
@@ -81,7 +81,7 @@ options.Display = 'iter';
 
 [x, Preis, exitflag] = linprog(c, A, b, Aeq, beq, lb, ub, x0, options)
 
-%% Aufgabe 3b
+%% Aufgabe 3b II
 clc;
 
 Ueberschuss = A*x-b;
